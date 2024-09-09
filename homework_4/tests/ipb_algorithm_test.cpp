@@ -45,14 +45,8 @@ TEST(IPB_AlgorithmTest, Clamp) {
 
   ipb::clamp(test_named_vector, 0, 15);
 
-  // for (std::size_t i = 0; i < exp_vec.size(); i++) {
-  //   std::cout << "exp[" << i << "]" << exp_vec[i] << "\n";
-  //   std::cout << "clm[" << i << "]" << (test_named_vector.vector())[i] <<
-  //   "\n";
-  // }
-  // ASSERT_EQ(exp_vec[i], clamp_vector[i]);
-  ASSERT_EQ(test_named_vector.vector(0), expected_named_vector.vector(0))
-      << "Aqui";
+  for (std::size_t i = 0; i < exp_vec.size(); i++)
+    ASSERT_EQ(test_named_vector.vector(i), expected_named_vector.vector(i));
 }
 
 int main(int argc, char **argv) {

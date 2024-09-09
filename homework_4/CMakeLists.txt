@@ -1,13 +1,14 @@
-# @Description: CMakefile for Homework 3
+# @Description: CMakefile for Homework 4
 # @Author: Leonardo Anjos Chaves        [lchavesbr@gmail.com]
 # @Date: 23/Jul/2024
-# @Modified: 25/Jul/2024
+# @Modified: 08/Set/2024
 #  Copyright (c) 2024 Leonardo Chaves, all rights reserved
 
 #Mandatory
 cmake_minimum_required(VERSION 3.20)
 project(homework_4 
         VERSION 1.0
+        DESCRIPTION "The C++ STL Library"
         LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 #strictly requirement of defined cpp compiler standard
@@ -23,17 +24,23 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 find_package(ClangFormat)
 find_package(StaticAnalyzers)
 
+# Set additional flags.
+set( CMAKE_CXX_FLAGS "-Wall -Werror -Wextra -Wpedantic" CACHE STRING "" FORCE)
+#-Wall - Wextra shows all warnings
+#and -O sets the optimization level
+#{0,1,2,3}, where 0 means no optimization and 3 full optimization.
+
 #set CMake build type if it is not set
 if (NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Debug)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "" FORCE)
+  #-g keep debug information in binary
+  set( CMAKE_CXX_FLAGS_DEBUG "-g" CACHE STRING "" FORCE)
+endif()
+if (CMAKE_BUILD_TYPE EQUAL Release)
+  set( CMAKE_CXX_FLAGS_RELEASE "-O2" CACHE STRING "" FORCE)
 endif()
 
-# Set additional flags.
-set( CMAKE_CXX_FLAGS "-Wall -Wextra")
-#-Wall - Wextra shows all warnings
-set( CMAKE_CXX_FLAGS_DEBUG "-g")
-#-g keep debug information in binary and -O sets the optimization level
-#{0,1,2,3}, where 0 means no optimization and 3 full optimization.
+message (STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
 #CMake will generate the tests we will create
 enable_testing()
@@ -41,9 +48,8 @@ enable_testing()
 add_subdirectory(src/ipb_algorithm)
 add_subdirectory(tests)
 
-
 #set local install directory in projects path, instead of default /usr/bin
-set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/results)
+#set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/results)
 
 #install static lib
 #install(TARGETS html_writer

@@ -4,7 +4,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 namespace ipb {
+
 template <typename T> class named_vector {
 public:
   std::vector<T> const &vector() const { return data_; }
@@ -28,6 +30,7 @@ public:
   operator=(named_vector<T> &) = default; // assignment operator
   named_vector<T> &
   operator=(named_vector<T> &&) = default; // move assignment operator
+
 private:
   std::string name_;
   std::vector<T> data_;
