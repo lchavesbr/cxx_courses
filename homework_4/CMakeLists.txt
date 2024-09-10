@@ -20,25 +20,22 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # CMake will search here for Find<pkg>.cmake files
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
-find_package(ClangFormat)
-find_package(StaticAnalyzers)
+#set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
+#find_package(ClangFormat)
+#find_package(StaticAnalyzers)
 
-# Set additional flags.
+include (cmake/Config.cmake)
+include (cmake/ClangFormat.cmake)
+include (cmake/StaticAnalyzers.cmake)
+
+# Set additional compiler flags.
 set( CMAKE_CXX_FLAGS "-Wall -Werror -Wextra -Wpedantic" CACHE STRING "" FORCE)
-#-Wall - Wextra shows all warnings
-#and -O sets the optimization level
-#{0,1,2,3}, where 0 means no optimization and 3 full optimization.
+set( CMAKE_CXX_FLAGS_DEBUG "-g" CACHE STRING "" FORCE)
+set( CMAKE_CXX_FLAGS_RELEASE "-O3" CACHE STRING "" FORCE)
 
-#set CMake build type if it is not set
-if (NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Debug CACHE STRING "" FORCE)
-  #-g keep debug information in binary
-  set( CMAKE_CXX_FLAGS_DEBUG "-g" CACHE STRING "" FORCE)
-endif()
-if (CMAKE_BUILD_TYPE EQUAL Release)
-  set( CMAKE_CXX_FLAGS_RELEASE "-O2" CACHE STRING "" FORCE)
-endif()
+#-Wall -Wextra shows all warnings and -Werror makes warnings an error to be treated.
+#-g keep debug information in binary
+#and -O sets the optimization level: {0,1,2,3}, where 0 means no optimization and 3 full optimization.
 
 message (STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
