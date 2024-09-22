@@ -15,3 +15,6 @@ if(ENABLE_BUILDTYPE_MODE)
 set(CMAKE_BUILD_TYPE ${MY_BUILD_TYPE} CACHE STRING "" FORCE)  
 endif()
 endif()
+
+#Enable testing framework
+option(PACKAGE_TESTS "Build the tests" ON)

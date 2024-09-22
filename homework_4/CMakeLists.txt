@@ -19,11 +19,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #export compiler commands
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# CMake will search here for Find<pkg>.cmake files
-#set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
-#find_package(ClangFormat)
-#find_package(StaticAnalyzers)
-
 include (cmake/Config.cmake)
 include (cmake/ClangFormat.cmake)
 include (cmake/StaticAnalyzers.cmake)
@@ -39,11 +34,20 @@ set( CMAKE_CXX_FLAGS_RELEASE "-O3" CACHE STRING "" FORCE)
 
 message (STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
-#CMake will generate the tests we will create
-enable_testing()
-
 add_subdirectory(src/ipb_algorithm)
-add_subdirectory(tests)
+
+#CMake will generate the tests we will create
+if(PACKAGE_TESTS)
+
+# CMake will search here for Find<pkg>.cmake files
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+  find_package(Git)   #update googletest as a git submodule during build time. 
+  include (CTest)     #enable_testing()
+  include(GoogleTest)
+  add_subdirectory(tests)
+endif()
+
+
 
 #set local install directory in projects path, instead of default /usr/bin
 #set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/results)
