@@ -1,7 +1,6 @@
 #ifndef NAMED_VECTOR_H
 #define NAMED_VECTOR_H
-#include <cstddef>
-#include <iostream>
+//#include <cstddef>
 #include <string>
 #include <vector>
 
@@ -9,9 +8,12 @@ namespace ipb {
 
 template <typename T> class named_vector {
 public:
-  std::vector<T> const &vector() const { return data_; }
+  std::vector<T> const &vector() const { return data_; } /*Getter*/
   T &vector(int i) { return data_[i]; }
-  std::string const &name() const { return name_; }
+  std::string const &name() const { return name_; } /*Getter*/
+  void set_vector(std::vector<T> const &data) { data_ = data; }; /*Setter Vector*/
+  void set_name(std::string const &name) { name_ = name; }; /*Setter Name*/
+
   int size() const { return (name_.size() + data_.size()); }
   bool isEmpty() const { return (name_.empty() || data_.empty()); }
   void reserve(std::size_t new_reserved_size) {
