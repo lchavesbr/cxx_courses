@@ -12,11 +12,3 @@ target_link_libraries(ipb_arithmetic PUBLIC cxx_setup)
 # executables
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)
 target_link_libraries(${CMAKE_PROJECT_NAME} ipb_arithmetic cxx_setup)
-
-#
-# 🚨 Make sure CMakeLists.txt file exists in the subdirectories!
-#add_subdirectory(${PROJECT_NAME})
-#add_subdirectory(executables)
-
-# 💡 Some things (e.g. tests or installation) are missing here.
-# 💡 Stay tuned for these in future lectures!

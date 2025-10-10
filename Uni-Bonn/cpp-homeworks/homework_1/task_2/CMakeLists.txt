@@ -36,7 +36,12 @@ target_include_directories(cxx_setup INTERFACE ${PROJECT_SOURCE_DIR})
 #
 # 🚨 Make sure CMakeLists.txt file exists in the subdirectories!
 add_subdirectory(src)
-#add_subdirectory(executables)
+
+set(CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}/install")
+install(TARGETS ${CMAKE_PROJECT_NAME} ipb_arithmetic
+        RUNTIME DESTINATION bin
+        ARCHIVE DESTINATION lib)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 # 💡 Some things (e.g. tests or installation) are missing here.
 # 💡 Stay tuned for these in future lectures!
