@@ -25,17 +25,17 @@ target_compile_features(cxx_setup INTERFACE cxx_std_17)
 target_include_directories(cxx_setup INTERFACE ${PROJECT_SOURCE_DIR})
 
 # ipb_arithmetic library
-add_library(ipb_arithmetic src/subtract.cpp src/sum.cpp)
-target_include_directories(ipb_arithmetic PUBLIC include)
-target_link_libraries(ipb_arithmetic PUBLIC cxx_setup)
+#add_library(ipb_arithmetic src/subtract.cpp src/sum.cpp)
+#target_include_directories(ipb_arithmetic PUBLIC include)
+#target_link_libraries(ipb_arithmetic PUBLIC cxx_setup)
 
 # executables
-add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} ipb_arithmetic cxx_setup)
+#add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
+#target_link_libraries(${CMAKE_PROJECT_NAME} ipb_arithmetic cxx_setup)
 
 #
 # 🚨 Make sure CMakeLists.txt file exists in the subdirectories!
-#add_subdirectory(${PROJECT_NAME})
+add_subdirectory(src)
 #add_subdirectory(executables)
 
 # 💡 Some things (e.g. tests or installation) are missing here.
