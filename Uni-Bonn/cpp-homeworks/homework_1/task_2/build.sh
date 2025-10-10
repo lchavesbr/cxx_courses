@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# @Description: Shell script to build task_2 of HW1
+# @Author: Leonardo Anjos Chaves        [lchavesbr@gmail.com]
+# @Date: 10/Oct/2025
+# @Modified:
+# Copyright (c) 2025 Leonardo Chaves, all rights reserved
 
 mkdir -p build
 
@@ -10,7 +16,3 @@ ar rcs build/libipb_arithmetic.a build/sum.o build/subtract.o
 
 # build example program
 c++ -Iinclude src/main.cpp -Lbuild -lipb_arithmetic -o build/task_2
-
-# copying to resultd subfolder
-cp build/task_2 results/bin
-cp build/libipb_arithmetic.a results/lib
