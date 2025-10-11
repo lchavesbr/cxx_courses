@@ -6,9 +6,9 @@
 
 # ipb_arithmetic library
 add_library(ipb_arithmetic subtract.cpp sum.cpp)
-target_include_directories(ipb_arithmetic PUBLIC ../include)
+target_include_directories(ipb_arithmetic PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_link_libraries(ipb_arithmetic PUBLIC cxx_setup)
 
 # executables
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} ipb_arithmetic cxx_setup)
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE ipb_arithmetic cxx_setup)
