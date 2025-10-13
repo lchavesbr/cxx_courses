@@ -7,7 +7,7 @@
 # Copyright (c) 2025 Leonardo Chaves, all rights reserved
 
 cmake_minimum_required(VERSION 3.16..3.24)
-project(task_2 VERSION 0.0.1
+project(task_1 VERSION 0.0.1
                     DESCRIPTION "IPB Uni-Bonn Modern C++ Course Task 1 of Homework 2"
                     LANGUAGES CXX)
 if(NOT CMAKE_BUILD_TYPE)
@@ -24,10 +24,11 @@ target_compile_options(cxx_setup INTERFACE -Wall -Wpedantic -Wextra -O2)
 target_compile_features(cxx_setup INTERFACE cxx_std_17)
 target_include_directories(cxx_setup INTERFACE ${PROJECT_SOURCE_DIR})
 
+include(cmake/ClangFormat.cmake)
 include(cmake/StaticAnalyzers.cmake)
 
 # executables
-add_executable(${CMAKE_PROJECT_NAME} main.cpp)
+add_executable(${CMAKE_PROJECT_NAME} guessing_game.cpp)
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE cxx_setup)
 
 # 💡 Some things (e.g. tests or installation) are missing here.
