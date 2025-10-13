@@ -1,4 +1,4 @@
-option(ENABLE_CPPCHECK "Enable static analysis with cppcheck" OFF)
+option(ENABLE_CPPCHECK "Enable static analysis with cppcheck" ON)
 option(ENABLE_CLANG_TIDY "Enable static analysis with clang-tidy" OFF)
 if(ENABLE_CPPCHECK)
   find_program(CPPCHECK cppcheck)
@@ -7,6 +7,7 @@ if(ENABLE_CPPCHECK)
         ${CPPCHECK}
         --enable=all
         --suppress=missingIncludeSystem
+        --suppress=checkersReport
         --inconclusive)
   else()
     message(SEND_ERROR "cppcheck requested but executable not found")
