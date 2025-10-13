@@ -1,4 +1,5 @@
----
+# clang-tidy settings adapted from Modern C++ Course from Uni-Bonn
+
 Checks: '*,
 -fuchsia-*,
 -google-*,
