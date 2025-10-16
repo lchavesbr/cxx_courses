@@ -20,10 +20,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # create a fake library to set cxx settings and compiler flags
 add_library(cxx_setup INTERFACE)
-target_compile_options(cxx_setup INTERFACE -Wall -Wpedantic -Wextra -O2)
-target_compile_features(cxx_setup INTERFACE cxx_std_17)
-target_include_directories(cxx_setup INTERFACE ${PROJECT_SOURCE_DIR} 
-INTERFACE "/usr/include/clang/22/include")
+target_compile_options(cxx_setup INTERFACE -Wall -Wpedantic -Wextra)
+target_compile_features(cxx_setup INTERFACE cxx_std_20)
+target_include_directories(cxx_setup INTERFACE ${PROJECT_SOURCE_DIR})
 
 include(cmake/ClangFormat.cmake)
 include(cmake/StaticAnalyzers.cmake)
