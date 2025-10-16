@@ -27,18 +27,21 @@ int main() {
 
         // Error output if user enter a non-integer type.
         if (std::cin.fail()) {
-            std::cerr << "Error encontered, exiting...\n";
+            std::cerr << "Error encountered, exiting...\n";
+            std::cout << guessed_number;
             return EXIT_FAILURE;
         }
 
         if (number < kMin || number > kMax) {
-            std::cerr << "[WARNING] : Number must be between 0 and 99.\n";
+            std::cerr << "[WARNING] : Number must be between 0 and 99\n";
+            std::cout << guessed_number;
+            return EXIT_FAILURE;
         }
 
-        if (number > guessed_number && number <= kMax) {
+        if (number > guessed_number) {
             std::cout << "The number is smaller. Try again\n";
         }
-        if (number < guessed_number && kMin <= number) {
+        if (number < guessed_number) {
             std::cout << "The number is greater. Try again\n";
         }
         if (number == guessed_number) {
@@ -47,7 +50,8 @@ int main() {
     }
 
     std::cout << "Congratulations!!!\n";
-    std::cout << "You guessed the number:   " << guessed_number << "\n";
+    std::cout << "You guessed the number:\n";
+    std::cout << guessed_number << "\n";
 
     return EXIT_SUCCESS;
 }
