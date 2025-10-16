@@ -32,5 +32,10 @@ include(cmake/StaticAnalyzers.cmake)
 add_executable(${CMAKE_PROJECT_NAME} guessing_game.cpp)
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE cxx_setup)
 
+# installation
+set(CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}")
+install(TARGETS ${CMAKE_PROJECT_NAME}
+        RUNTIME DESTINATION bin)
+
 # 💡 Some things (e.g. tests or installation) are missing here.
 # 💡 Stay tuned for these in future lectures!
