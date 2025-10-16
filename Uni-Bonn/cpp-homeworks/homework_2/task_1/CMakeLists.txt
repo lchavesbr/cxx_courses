@@ -6,10 +6,11 @@
 # @Modified:
 # Copyright (c) 2025 Leonardo Chaves, all rights reserved
 
-cmake_minimum_required(VERSION 3.16..3.24)
+cmake_minimum_required(VERSION 3.26..3.31)
 project(task_1 VERSION 0.0.1
                     DESCRIPTION "IPB Uni-Bonn Modern C++ Course Task 1 of Homework 2"
                     LANGUAGES CXX)
+
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "" FORCE)
 endif()
@@ -20,8 +21,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # create a fake library to set cxx settings and compiler flags
 add_library(cxx_setup INTERFACE)
-target_compile_options(cxx_setup INTERFACE -Wall -Wpedantic -Wextra -O2)
-target_compile_features(cxx_setup INTERFACE cxx_std_17)
+target_compile_options(cxx_setup INTERFACE -Wall -Wpedantic -Wextra)
+target_compile_features(cxx_setup INTERFACE cxx_std_20)
 target_include_directories(cxx_setup INTERFACE ${PROJECT_SOURCE_DIR})
 
 include(cmake/ClangFormat.cmake)
