@@ -1,2 +1,2 @@
 add_executable(create_web_app create_web_app.cpp)
-target_link_libraries(create_web_app PRIVATE cxx_setup)
+target_link_libraries(create_web_app PRIVATE image_browser cxx_setup)
