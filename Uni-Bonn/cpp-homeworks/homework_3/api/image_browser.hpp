@@ -36,7 +36,8 @@ void AddFullRow(const ImageRow& row, bool first_row = false);
  * @param stylesheet The CSS style, if any.
  * @param rows       A set of ImageRow, with all the given images to show.
  */
-void CreateImageBrowser(const std::string& title, const std::string& stylesheet,
+void CreateImageBrowser(const std::string& title,
+                        const std::string& stylesheet,
                         const std::vector<ImageRow>& rows);
 
 }  // namespace image_browser
