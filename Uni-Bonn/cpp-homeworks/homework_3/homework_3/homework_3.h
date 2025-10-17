@@ -6,5 +6,6 @@
 #define HOMEWORK_3_H_
 
 #include <homework_3/html_writer/html_writer.hpp>
+#include <homework_3/image_browser/image_browser.hpp>
 
 #endif  // HOMEWORK_3_H
