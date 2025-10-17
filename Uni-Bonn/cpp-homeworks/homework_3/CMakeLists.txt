@@ -26,6 +26,6 @@ add_subdirectory(executables)
 
 # Installation
 set (CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}/results")
-install (TARGETS create_web_app html_writer
+install (TARGETS create_web_app image_browser
         RUNTIME DESTINATION bin
         ARCHIVE DESTINATION lib)
