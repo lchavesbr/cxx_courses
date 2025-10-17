@@ -4,6 +4,7 @@
 // Copyright (c) 2025 Leonardo Chaves, all rights reserved
 
 #include <filesystem>
+#include <format>
 #include <homework_3/html_writer/html_writer.hpp>
 #include <iostream>
 
@@ -22,10 +23,12 @@ void CloseDocument() {
 }
 
 void AddCSSStyle(const std::string& stylesheet) {
+    std::cout << "<head>\n";
     std::string const kCSSStyle =
             R"(<link rel="stylesheet" type="text/css" href=")" + stylesheet +
-            R"(" </>)" + "\n";
+            R"(" />)" + "\n";
     std::cout << kCSSStyle;
+    std::cout << "</head>\n";
 }
 
 void AddTitle(const std::string& title) {
@@ -62,9 +65,11 @@ void AddImage(const std::string& img_path, float score, bool highlight) {
     column += ">\n";
     std::cout << column;
     std::cout << "<h2>" << img_title + img_extension << "</h2>\n";
-    std::cout << "<img src =\"" << img_path << "\" />" << std::endl;
-    std::cout << "<p>score = " << std::setprecision(2) << std::fixed << score
-              << "</p>\n";
+    std::cout << R"(<img src =")" << img_path << R"(" />)" << "\n";
+    // std::cout << "<p>score = " << std::setprecision(2) << std::fixed << score
+    // << "</p>\n";
+    std::string const kScore = std::format("<p>score = {:.2f}</p>\n", score);
+    std::cout << kScore;
     std::cout << "</div>\n";
 }
 }  // namespace html_writer
