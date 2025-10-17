@@ -1,0 +1,2 @@
+add_library(image_browser STATIC image_browser.cpp)
+target_link_libraries(image_browser PUBLIC html_writer cxx_setup)
