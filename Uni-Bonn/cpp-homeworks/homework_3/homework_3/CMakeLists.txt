@@ -1,1 +1,2 @@
 add_subdirectory(html_writer)
+add_subdirectory(image_browser)
