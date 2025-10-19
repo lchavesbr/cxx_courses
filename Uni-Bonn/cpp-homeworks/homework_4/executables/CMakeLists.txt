@@ -1,0 +1,2 @@
+add_executable(hw4_example hw4_example.cpp)
+target_link_libraries(hw4_example PRIVATE ipb_algorithm named_vector cxx_setup)

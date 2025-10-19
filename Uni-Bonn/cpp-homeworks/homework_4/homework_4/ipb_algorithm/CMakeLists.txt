@@ -1,0 +1,2 @@
+add_library(ipb_algorithm STATIC ipb_algorithm.cpp)
+target_link_libraries(ipb_algorithm PUBLIC named_vector cxx_setup)

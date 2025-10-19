@@ -1,0 +1,2 @@
+add_library(named_vector INTERFACE named_vector.h)
+target_link_libraries(named_vector INTERFACE cxx_setup)
