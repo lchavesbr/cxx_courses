@@ -11,5 +11,9 @@ void print(named_vector<int>& obj);
 void fill(named_vector<int>& obj, int kValue);
 bool find(named_vector<int>& obj, int kValue);
 std::string& toupper(named_vector<int>& obj);
+void sort(named_vector<int>& obj);
+void rotate(named_vector<int>& obj, unsigned int pos);
+void reverse(named_vector<int>& obj);
+
 }  // namespace ipb
 #endif  // IPB_ALGORITHM_H

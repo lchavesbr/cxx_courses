@@ -45,4 +45,15 @@ std::string& toupper(named_vector<int>& obj) {
 
     return obj.name();
 }
+void sort(named_vector<int>& obj) {
+    std::sort(obj.vector().begin(), obj.vector().end());
+}
+void rotate(named_vector<int>& obj, unsigned int const pos) {
+    std::rotate(obj.vector().begin(), obj.vector().begin() + pos,
+                obj.vector().end());
+}
+void reverse(named_vector<int>& obj) {
+    std::reverse(obj.vector().begin(), obj.vector().end());
+}
+
 }  // namespace ipb

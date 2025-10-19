@@ -38,10 +38,28 @@ int main() {
     ipb::print(mynamed_vec);
     std::cout << "\n";
 
+    myvec = {-10, 4, -2, 0, 50};
+    mynamed_vec.std_vector_ = myvec;
+
     std::cout << "[find]: \t" << std::format("{}\n", ipb::find(mynamed_vec, 0));
 
     std::cout << "[toupper]: \t"
               << std::format("{}\n", ipb::toupper(mynamed_vec));
+
+    std::cout << "[sort]: \t";
+    ipb::sort(mynamed_vec);
+    ipb::print(mynamed_vec);
+    std::cout << "\n";
+
+    std::cout << "[rotate]: \t";
+    ipb::rotate(mynamed_vec, 3);
+    ipb::print(mynamed_vec);
+    std::cout << "\n";
+
+    std::cout << "[reverse]: \t";
+    ipb::reverse(mynamed_vec);
+    ipb::print(mynamed_vec);
+    std::cout << "\n";
 
     return 0;
 }
