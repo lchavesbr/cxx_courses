@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16..3.31)
-project(img_brower_webapp  VERSION     0.0.1
+project(image_browser_webapp  VERSION     0.0.1
                     DESCRIPTION "Image Brower Web Application from Homework 3"
                     LANGUAGES    CXX)
 
