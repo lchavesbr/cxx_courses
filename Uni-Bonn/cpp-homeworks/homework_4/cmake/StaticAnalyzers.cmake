@@ -8,6 +8,7 @@ if(ENABLE_CPPCHECK)
         --enable=all
         --suppress=missingIncludeSystem
         --suppress=checkersReport
+        --suppress=unusedFunction
         --inconclusive)
   else()
     message(SEND_ERROR "cppcheck requested but executable not found")
