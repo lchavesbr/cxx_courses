@@ -18,12 +18,17 @@ target_compile_features(cxx_setup INTERFACE cxx_std_20)
 target_include_directories(cxx_setup INTERFACE ${PROJECT_SOURCE_DIR})
 
 
+#Update Project Submodules:
+include(cmake/UpdateSubmodules.cmake)
+
+#Check with clang-format, cppcheck and clang-tidy during compile-time
 include(cmake/ClangFormat.cmake)
 include(cmake/StaticAnalyzers.cmake)
 
+add_subdirectory(external)
 add_subdirectory(homework_4)
 add_subdirectory(executables)
-#add_subdirectory(tests)
+add_subdirectory(tests)
 
 # Installation
 #set (CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}/results")
