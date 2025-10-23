@@ -1,4 +1,6 @@
-find_package(Catch2 REQUIRED)
+#find_package(Catch2 REQUIRED)
+
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/external/catch2/extras)
 include(CTest)
 include(Catch)
 
