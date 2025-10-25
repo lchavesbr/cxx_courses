@@ -1,3 +1,6 @@
 [submodule "Uni-Bonn/cpp-homeworks/homework_4/external/catch2"]
 	path = Uni-Bonn/cpp-homeworks/homework_4/external/catch2
 	url = https://github.com/catchorg/Catch2.git
+[submodule "Uni-Bonn/cpp-homeworks/homework_4/external/boost"]
+	path = Uni-Bonn/cpp-homeworks/homework_4/external/boost
+	url = https://github.com/boostorg/boost.git
