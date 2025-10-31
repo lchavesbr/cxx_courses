@@ -1,11 +1,17 @@
 # Adapted fromm  https://github.com/ttroy50/cmake-examples/
-find_program(CLANG_FORMAT "clang-format")
-if(NOT CLANG_FORMAT)
-  message(SEND_ERROR "clang-format not found on your \$\{PATH\}")
-endif()
+
+option(ENABLE_CLANG_FORMAT "Enable code format analysis with clang-format" ON)
+
+if(ENABLE_CLANG_FORMAT)
+
+  find_program(CLANG_FORMAT "clang-format")
+  if(NOT CLANG_FORMAT)
+    message(SEND_ERROR "clang-format not found on your \$\{PATH\}")
+  endif()
+
 
 # Split the regex into multiple parts
-set(EXCLUDE_BUILD "-path ./build -prune -o")
+set(EXCLUDE_BUILD "\\( -path ./build -o -path ./tests -o -path ./external \\) -prune -o")
 set(REGEX "-regextype posix-extended -regex")
 set(CPP_EXT "'.*\\.(cpp|cxx|cc|hpp|hxx|h)'")
 set(TRIM_OUT "-print |  tr '\\n' ';'")
@@ -22,3 +28,5 @@ add_custom_target(${PROJECT_NAME}_format ALL
                   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
                   COMMAND ${CLANG_FORMAT} -Werror
                           --dry-run --ferror-limit=1 -style=file ${ALL_SOURCES})
+message(STATUS "Clang-format will be applied to the following files: ${ALL_SOURCES}")
+endif()
