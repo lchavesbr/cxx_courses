@@ -13,53 +13,53 @@
 #include "homework_4/ipb_algorithm/ipb_algorithm.h"
 
 int main() {
-    std::cout << "Hello world from Homework_4.\n";
+  std::cout << "Hello world from Homework_4.\n";
 
-    std::string myname{"Leonardo"};
-    std::vector<int> myvec{2, 4, 6, 8, 10};
-    ipb::named_vector<int> mynamed_vec(myname, myvec);
+  std::string myname{"Leonardo"};
+  std::vector<int> myvec{2, 4, 6, 8, 10};
+  ipb::named_vector<int> mynamed_vec(myname, myvec);
 
-    std::cout << "[accumulate]: \t" << ipb::accumulate(mynamed_vec, 0) << "\n";
-    std::cout << "[count]: \t" << ipb::count(mynamed_vec, 1) << "\n";
-    std::cout << "[all_even]: \t"
-              << std::format("{}\n", ipb::all_even(mynamed_vec));
+  std::cout << "[accumulate]: \t" << ipb::accumulate(mynamed_vec, 0) << "\n";
+  std::cout << "[count]: \t" << ipb::count(mynamed_vec, 1) << "\n";
+  std::cout << "[all_even]: \t"
+            << std::format("{}\n", ipb::all_even(mynamed_vec));
 
-    std::cout << "[print]: \t";
-    ipb::print(mynamed_vec);
-    std::cout << "\n";
+  std::cout << "[print]: \t";
+  ipb::print(mynamed_vec);
+  std::cout << "\n";
 
-    std::cout << "[clamp]: \t";
-    ipb::clamp(mynamed_vec, 1, 5);
-    ipb::print(mynamed_vec);
-    std::cout << "\n";
+  std::cout << "[clamp]: \t";
+  ipb::clamp(mynamed_vec, 1, 5);
+  ipb::print(mynamed_vec);
+  std::cout << "\n";
 
-    std::cout << "[fill]: \t";
-    ipb::fill(mynamed_vec, -10);
-    ipb::print(mynamed_vec);
-    std::cout << "\n";
+  std::cout << "[fill]: \t";
+  ipb::fill(mynamed_vec, -10);
+  ipb::print(mynamed_vec);
+  std::cout << "\n";
 
-    myvec = {-10, 4, -2, 0, 50};
-    mynamed_vec.std_vector_ = myvec;
+  myvec = {-10, 4, -2, 0, 50};
+  mynamed_vec.std_vector_ = myvec;
 
-    std::cout << "[find]: \t" << std::format("{}\n", ipb::find(mynamed_vec, 0));
+  std::cout << "[find]: \t" << std::format("{}\n", ipb::find(mynamed_vec, 0));
 
-    std::cout << "[toupper]: \t"
-              << std::format("{}\n", ipb::toupper(mynamed_vec));
+  std::cout << "[toupper]: \t"
+            << std::format("{}\n", ipb::toupper(mynamed_vec));
 
-    std::cout << "[sort]: \t";
-    ipb::sort(mynamed_vec);
-    ipb::print(mynamed_vec);
-    std::cout << "\n";
+  std::cout << "[sort]: \t";
+  ipb::sort(mynamed_vec);
+  ipb::print(mynamed_vec);
+  std::cout << "\n";
 
-    std::cout << "[rotate]: \t";
-    ipb::rotate(mynamed_vec, 3);
-    ipb::print(mynamed_vec);
-    std::cout << "\n";
+  std::cout << "[rotate]: \t";
+  ipb::rotate(mynamed_vec, 3);
+  ipb::print(mynamed_vec);
+  std::cout << "\n";
 
-    std::cout << "[reverse]: \t";
-    ipb::reverse(mynamed_vec);
-    ipb::print(mynamed_vec);
-    std::cout << "\n";
+  std::cout << "[reverse]: \t";
+  ipb::reverse(mynamed_vec);
+  ipb::print(mynamed_vec);
+  std::cout << "\n";
 
-    return 0;
+  return 0;
 }
