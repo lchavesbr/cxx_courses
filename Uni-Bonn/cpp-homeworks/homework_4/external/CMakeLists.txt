@@ -1,1 +1,2 @@
-add_subdirectory(catch2)
+include (catch2.cmake)
+include (boost.cmake)
