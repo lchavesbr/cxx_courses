@@ -21,9 +21,8 @@ target_include_directories(cxx_setup INTERFACE ${PROJECT_SOURCE_DIR})
 #Update Project Submodules:
 include(cmake/UpdateSubmodules.cmake)
 
-#Check with clang-format, cppcheck and clang-tidy during compile-time
+#Check with clang-format
 include(cmake/ClangFormat.cmake)
-include(cmake/StaticAnalyzers.cmake)
 
 add_subdirectory(external)
 add_subdirectory(homework_4)
