@@ -1,4 +1,5 @@
 #include <homework_4/ipb_algorithm/ipb_algorithm.h>
+#include <homework_4/named_vector/named_vector.h>
 
 #include <algorithm>
 #include <cctype>
@@ -6,54 +7,52 @@
 #include <iostream>
 #include <numeric>
 
-#include "homework_4/named_vector/named_vector.h"
-
 namespace ipb {
 
 int accumulate(named_vector<int>& obj, int init) {
-    return std::accumulate(obj.vector().cbegin(), obj.vector().cend(), init);
+  return std::accumulate(obj.vector().cbegin(), obj.vector().cend(), init);
 }
 int count(named_vector<int>& obj, int ref) {
-    return std::count((obj.vector()).cbegin(), (obj.vector()).cend(), ref);
+  return std::count((obj.vector()).cbegin(), (obj.vector()).cend(), ref);
 }
 bool all_even(named_vector<int>& obj) {
-    return (std::all_of(obj.vector().cbegin(), obj.vector().cend(),
-                        [](int i) { return (i % 2) == 0; }));
+  return (std::all_of(obj.vector().cbegin(), obj.vector().cend(),
+                      [](int i) { return (i % 2) == 0; }));
 }
 void clamp(named_vector<int>& obj, int const kMin, int const kMax) {
-    std::for_each(obj.vector().begin(), obj.vector().end(),
-                  [kMin, kMax](int& i) { i = std::clamp(i, kMin, kMax); });
+  std::for_each(obj.vector().begin(), obj.vector().end(),
+                [kMin, kMax](int& i) { i = std::clamp(i, kMin, kMax); });
 }
 void print(named_vector<int>& obj) {
-    std::cout << std::format("{} : ", obj.name());
-    std::for_each(obj.vector().cbegin(), obj.vector().cend(),
-                  [](int i) { std::cout << std::format("{},", i); });
+  std::cout << std::format("{} : ", obj.name());
+  std::for_each(obj.vector().cbegin(), obj.vector().cend(),
+                [](int i) { std::cout << std::format("{},", i); });
 }
 void fill(named_vector<int>& obj, int const kValue) {
-    std::fill(obj.vector().begin(), obj.vector().end(), kValue);
+  std::fill(obj.vector().begin(), obj.vector().end(), kValue);
 }
 
 bool find(named_vector<int>& obj, int const kValue) {
-    return (std::find(obj.vector().cbegin(), obj.vector().cend(), kValue) !=
-            obj.vector().cend());
+  return (std::find(obj.vector().cbegin(), obj.vector().cend(), kValue) !=
+          obj.vector().cend());
 }
 std::string& toupper(named_vector<int>& obj) {
-    // std::for_each(name_upper.begin(), name_upper.end(),
-    //               [](char& c) { c = std::toupper(c); });
-    std::for_each(obj.name().begin(), obj.name().end(),
-                  [](char& c) { c = std::toupper(c); });
+  // std::for_each(name_upper.begin(), name_upper.end(),
+  //               [](char& c) { c = std::toupper(c); });
+  std::for_each(obj.name().begin(), obj.name().end(),
+                [](char& c) { c = std::toupper(c); });
 
-    return obj.name();
+  return obj.name();
 }
 void sort(named_vector<int>& obj) {
-    std::sort(obj.vector().begin(), obj.vector().end());
+  std::sort(obj.vector().begin(), obj.vector().end());
 }
 void rotate(named_vector<int>& obj, unsigned int const pos) {
-    std::rotate(obj.vector().begin(), obj.vector().begin() + pos,
-                obj.vector().end());
+  std::rotate(obj.vector().begin(), obj.vector().begin() + pos,
+              obj.vector().end());
 }
 void reverse(named_vector<int>& obj) {
-    std::reverse(obj.vector().begin(), obj.vector().end());
+  std::reverse(obj.vector().begin(), obj.vector().end());
 }
 
 }  // namespace ipb
