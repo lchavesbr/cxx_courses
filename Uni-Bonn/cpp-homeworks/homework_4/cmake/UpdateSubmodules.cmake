@@ -7,6 +7,7 @@
 
 #execute:
 #git submodule add https://github.com/catchorg/Catch2.git external/catch2
+#git submodule add https://github.com/boostorg/boost.git external/boost
 
 find_package(Git QUIET)
 if(GIT_FOUND)
