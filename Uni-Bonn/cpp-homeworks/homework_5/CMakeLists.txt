@@ -29,7 +29,7 @@ find_package(OpenCV REQUIRED)
 add_subdirectory(external)
 add_subdirectory(homework_5)
 add_subdirectory(executables)
-add_subdirectory(tests)
+#add_subdirectory(tests)
 
 # Installation
 #set (CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}/results")

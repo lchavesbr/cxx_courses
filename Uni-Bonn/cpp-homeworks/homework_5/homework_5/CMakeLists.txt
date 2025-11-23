@@ -1,1 +1,2 @@
-add_subdirectory(mat_serialization)
+add_subdirectory (compute_sift)
+add_subdirectory(serialization)
