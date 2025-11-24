@@ -1,2 +1,3 @@
 add_subdirectory (compute_sift)
 add_subdirectory(serialization)
+add_subdirectory(convert_dataset)

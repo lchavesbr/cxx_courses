@@ -8,3 +8,6 @@ target_link_libraries(serialize PRIVATE ${OpenCV_LIBS} mat_serialization compute
 add_executable(deserialize deserialize.cpp)
 target_include_directories(deserialize PRIVATE ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(deserialize PRIVATE ${OpenCV_LIBS} mat_serialization compute_sift cxx_setup)
+
+add_executable(convert convert.cpp)
+target_link_libraries(convert PRIVATE convert_dataset cxx_setup)
