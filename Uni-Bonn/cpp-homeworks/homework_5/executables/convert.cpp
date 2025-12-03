@@ -5,7 +5,7 @@
 
 int main(int argc, char** argv) {
   if (argc != 2) {
-    std::cerr << std::format("Usage: {} <source directory>\n", argv[0]);
+    std::cerr << std::format("Usage: {} <source PNG directory>\n", argv[0]);
     return EXIT_FAILURE;
   }
 

@@ -1,7 +1,6 @@
 #include <homework_5/compute_sift/compute_sift.hpp>
 #include <homework_5/convert_dataset/convert_dataset.hpp>
 #include <homework_5/serialization/serialization.hpp>
-#include <iostream>
 #include <string>
 
 namespace ipb::serialization::sifts {
@@ -25,6 +24,18 @@ void ConvertDataset(const std::filesystem::path& img_path) {
   }
 }
 
-std::vector<cv::Mat> LoadDataset(const std::filesystem::path& bin_path) {}
+std::vector<cv::Mat> LoadDataset(const std::filesystem::path& bin_path) {
+  std::string const kExtension = ".bin";
+
+  std::vector<cv::Mat> bin_img_vec;
+
+  for (auto& p : std::filesystem::directory_iterator(bin_path)) {
+    if (kExtension.compare(p.path().extension()) == 0) {
+      bin_img_vec.emplace_back(
+          ipb::serialization::Deserialize(p.path().string()));
+    }
+  }
+  return bin_img_vec;
+}
 
 }  // namespace ipb::serialization::sifts

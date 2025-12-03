@@ -17,9 +17,11 @@ int main(int argc, char** argv) {
   std::string const kBinary_extension(".bin");
   std::filesystem::path fs_filename{kFilename};
 
-  if (kFilename.compare(fs_filename.filename()) != 0) {
+  if (kFilename.compare(fs_filename.string()) != 0) {
     std::cerr << std::format(
         "Binary file format not supported. It must be '.bin'\n");
+    std::cerr << std::format("Input file: {}\n", kFilename);
+    std::cerr << std::format("Compared file: {}\n", fs_filename.string());
     return EXIT_FAILURE;
   }
 

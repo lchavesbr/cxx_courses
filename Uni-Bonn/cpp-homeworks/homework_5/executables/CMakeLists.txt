@@ -11,3 +11,6 @@ target_link_libraries(deserialize PRIVATE ${OpenCV_LIBS} mat_serialization compu
 
 add_executable(convert convert.cpp)
 target_link_libraries(convert PRIVATE convert_dataset cxx_setup)
+
+add_executable(load_dataset load_dataset.cpp)
+target_link_libraries(load_dataset PRIVATE convert_dataset cxx_setup)

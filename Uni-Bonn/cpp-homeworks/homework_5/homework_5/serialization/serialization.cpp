@@ -35,7 +35,7 @@ void Serialize(const cv::Mat& m, const std::string& filename) {
 cv::Mat Deserialize(const std::string& filename) {
   std::ifstream f_in(filename, std::ios_base::in | std::ios_base::binary);
 
-  if (!f_in) {
+  if (f_in.bad()) {
     std::cerr << "Could not open " << filename
               << " in binary mode for reading.\n";
     return cv::Mat::zeros(0, 0, CV_8UC3);
