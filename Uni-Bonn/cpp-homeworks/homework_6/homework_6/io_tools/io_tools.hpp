@@ -17,8 +17,8 @@ namespace igg::io_tools {
 struct ImageData {
   int rows;
   int cols;
-  uint8_t max_val;
-  std::vector<uint8_t> data;
+  std::uint8_t max_val;
+  std::vector<std::uint8_t> data;
 };
 
 /// Reads from a pgm image from ascii file. Returns empty ImageData if the path

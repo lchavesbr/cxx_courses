@@ -40,17 +40,20 @@ ImageData ReadFromPgm(const std::string& file_name) {
 }
 
 bool WriteToPgm(const ImageData& image_data, const std::string& file_name) {
-  std::ofstream out(file_name);
+  std::ofstream out(file_name, std::ios_base::out);
   if (!out) {
     return false;
   }
 
-  out << "P2" << std::endl
-      << image_data.rows << " " << image_data.cols << std::endl
-      << image_data.max_val << std::endl;
+  out << "P2" << '\n';
+  out << image_data.rows << " " << image_data.cols << '\n';
+  out << static_cast<uint>(image_data.max_val) << '\n';
+
   for (int r = 0; r < image_data.rows; ++r) {
     for (int c = 0; c < image_data.cols; ++c) {
-      out << image_data.data[(r * image_data.cols) + c] << " ";
+      out << static_cast<unsigned int>(
+                 image_data.data[(r * image_data.cols) + c])
+          << " ";
     }
     out << std::endl;
   }
