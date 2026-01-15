@@ -1,5 +1,5 @@
 option(ENABLE_CPPCHECK "Enable static analysis with cppcheck" ON)
-option(ENABLE_CLANG_TIDY "Enable static analysis with clang-tidy" OFF )
+option(ENABLE_CLANG_TIDY "Enable static analysis with clang-tidy" ON)
 
 if(ENABLE_CPPCHECK)
   find_program(CPPCHECK cppcheck)
@@ -11,10 +11,13 @@ if(ENABLE_CPPCHECK)
         ${CPPCHECK}
         #${CPPCHECK_EXCLUDE_FOLDER}
         --enable=all
-        --suppress=unusedFunction
-        --suppress=missingIncludeSystem
+        --suppress=unusedFunction:
+        --suppress=missingIncludeSystem  #information: Include file: <System Header> not found.
         --suppress=checkersReport
-        --inconclusive)
+        --inconclusive
+        #--showtime=summary
+        #--report-progress
+        )
         message(STATUS "CPPCHECK CMD: ${CMAKE_CXX_CPPCHECK}")
   else()
     message(SEND_ERROR "cppcheck requested but executable not found")
@@ -25,6 +28,7 @@ if(ENABLE_CLANG_TIDY)
   find_program(CLANGTIDY clang-tidy)
   if(CLANGTIDY)
     set(CMAKE_CXX_CLANG_TIDY ${CLANGTIDY})
+    message(STATUS "Value of CMAKE_CXX_CLANG_TIDY: ${CMAKE_CXX_CLANG_TIDY}")
   else()
     message(SEND_ERROR "clang-tidy requested but executable not found")
   endif()

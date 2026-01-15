@@ -10,24 +10,26 @@ if(ENABLE_CLANG_FORMAT)
   endif()
 
 
-# Split the regex into multiple parts
-set(EXCLUDE_BUILD "\\( -path ./build -o -path ./tests -o -path ./external \\) -prune -o")
-set(REGEX "-regextype posix-extended -regex")
-set(CPP_EXT "'.*\\.(cpp|cxx|cc|hpp|hxx|h)'")
-set(TRIM_OUT "-print |  tr '\\n' ';'")
+  # Split the regex into multiple parts
+  set(EXCLUDE_FOLDERS "\\( -path ./build -o -path ./tests -o -path ./external \\)" )
+  set(EXCLUDE_PATH "${EXCLUDE_FOLDERS} -prune -o")
+  set(REGEX "-regextype posix-extended -regex")
+  set(CPP_EXT "'.*\\.(cpp|cxx|cc|hpp|hxx|h)'")
+  set(TRIM_OUT "-print |  tr '\\n' ';'")
 
 # Get all project files
-execute_process(
-  COMMAND bash -c "find . ${EXCLUDE_BUILD} ${REGEX} ${CPP_EXT} ${TRIM_OUT}"
-  OUTPUT_VARIABLE ALL_SOURCES
-  OUTPUT_STRIP_TRAILING_WHITESPACE
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+  execute_process(
+    COMMAND bash -c "find . ${EXCLUDE_PATH} ${REGEX} ${CPP_EXT} ${TRIM_OUT}"
+    OUTPUT_VARIABLE ALL_SOURCES
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
-add_custom_target(${PROJECT_NAME}_format ALL
+  message(STATUS "Clang-format will be applied to the following files: ${ALL_SOURCES}")
+
+  add_custom_target(${PROJECT_NAME}_format ALL
                   COMMENT "Checking clang-format changes"
-                  #WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-                  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
                   COMMAND ${CLANG_FORMAT} -Werror
                           --dry-run --ferror-limit=1 -style=file ${ALL_SOURCES})
-message(STATUS "Clang-format will be applied to the following files: ${ALL_SOURCES}")
+
 endif()
