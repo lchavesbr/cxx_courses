@@ -1,8 +1,10 @@
 # clang-tidy settings adapted from Modern C++ Course from Uni-Bonn
 
-Checks: '-*, modernize-*, readability-*, performance-*, cppcoreguidelines-*, bugprone-*, clang-analyzer-*, google-*, fuchsia-*'
+#Checks: '-*, modernize-*, readability-*, performance-*, cppcoreguidelines-*, bugprone-*, clang-analyzer-*, google-*, fuchsia-*, -modernize-use-trailing-return-type'
+Checks: '-*, cppcoreguidelines-*'
 WarningsAsErrors: ''
-HeaderFilterRegex: '^(src|include)/.*'
+#HeaderFilterRegex: '^(src|include)/.*'
+HeaderFilterRegex: '.*'
 #AnalyzeTemporaryDtors: false
 FormatStyle: file
 #User: your_name
