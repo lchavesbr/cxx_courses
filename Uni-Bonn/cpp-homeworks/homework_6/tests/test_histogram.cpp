@@ -5,9 +5,8 @@
 // Copyright (c) 2019 Igor Bogoslavskyi , all rights reserved
 #include <gtest/gtest.h>
 
+#include <homework_6/homework_6.hpp>
 #include <iostream>
-
-#include "homework_6.h"
 
 using igg::Image;
 

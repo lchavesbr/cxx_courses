@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 
-#include "homework_6.h"
+#include <homework_6/homework_6.hpp>
 
 using igg::Image;
 
