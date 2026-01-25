@@ -11,3 +11,6 @@
 [submodule "Uni-Bonn/cpp-homeworks/homework_6/external/googletest"]
 	path = Uni-Bonn/cpp-homeworks/homework_6/external/googletest
 	url = https://github.com/google/googletest.git
+[submodule "Uni-Bonn/cpp-homeworks/homework_7/external/googletest"]
+	path = Uni-Bonn/cpp-homeworks/homework_7/external/googletest
+	url = https://github.com/google/googletest.git
